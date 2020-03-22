@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.68.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> &middot; Liu&#39;s Blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://dreamlullaby.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://dreamlullaby.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://dreamlullaby.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://dreamlullaby.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://dreamlullaby.github.io"><h1>Liu&#39;s Blog</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://dreamlullaby.github.io">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2020. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1></h1>
+  <time datetime=0001-01-01T00:00:00Z class="post-date">Mon, Jan 1, 0001</time>
+  <h1 id="整体思路">整体思路</h1>
+<p>第四章 攻击目的 ——&gt;第二三章 攻击模型、手段</p>
+<p>战术-目的</p>
+<p>技术-手段</p>
+<p>对于一个知识点</p>
+<ul>
+<li>是什么（概念）</li>
+<li>组成要素，要素间关系</li>
+<li>机理</li>
+<li>技术</li>
+</ul>
+<p><strong>总体安全目标</strong></p>
+<p>真实性</p>
+<p>可用性</p>
+<p>完整性</p>
+<p>保密性</p>
+<p>所有权</p>
+<h1 id="第二章-attack-models">第二章 Attack models</h1>
+<h2 id="cyber-kill-chain">Cyber Kill-Chain</h2>
+<p>![image-20191224225628663](C:\Users\Liu xida\AppData\Roaming\Typora\typora-user-images\image-20191224225628663.png)</p>
+<p>reconnaissance识别</p>
+<p>weaponization武器化</p>
+<p>delivery投放</p>
+<p>exploitation利用</p>
+<p>installation安装</p>
+<p>command and control指令与控制</p>
+<p>action of objective目标行动</p>
+<h3 id="为什么是chain">为什么是chain:</h3>
+<p>chain 是集成的，终端到终端的过程</p>
+<ul>
+<li>任意一部分的改变会影响整个攻击过程</li>
+<li>打破chain中的某一部分是一种防御思路</li>
+</ul>
+<h2 id="attck">ATT&amp;CK</h2>
+<p>Definition: a classification model for network attack phases 分类模型</p>
+<p>a kind of mid-level model</p>
+<p>consists of many static(strategy)</p>
+<h2 id="initial-access">Initial access</h2>
+<p>classify:</p>
+<ul>
+<li>exploiting vulnerabilities
+<ul>
+<li>SQL injection</li>
+<li>Stack overflow</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>hardware attack
+<ul>
+<li>malicious code via USB</li>
+</ul>
+</li>
+<li>trust attack</li>
+</ul>
+<h3 id="sql-injection">SQL injection</h3>
+<p>in a word: <!-- raw HTML omitted -->Code is allowed in input<!-- raw HTML omitted --> 盲目信任用户输入</p>
+<p>can be avoided by Regular expression 输入检测</p>
+<p>Types:</p>
+<ul>
+<li>Bypass authentication 绕过权限认证</li>
+<li>fetch information(e.g. using sql injection to obtain the whole database )获取信息</li>
+<li>execute functions to get information of the DB 获取数据库相关信息（版本，表信息，etc</li>
+</ul>
+<h3 id="other-passive-initial-access-methods">Other passive initial access methods</h3>
+<p>spear phishing 钓鱼攻击（via email with files,URL,etc.）</p>
+<h2 id="privilege-escalation-提权">privilege escalation 提权</h2>
+<h3 id="vulnerability-exploiting-利用漏洞">vulnerability exploiting 利用漏洞</h3>
+<ul>
+<li>get a copy of valid token by exploiting vulnerability in Windows</li>
+<li>states bits misuse in Linux</li>
+</ul>
+<h3 id="execution-path-hijacking">execution path hijacking</h3>
+<p>hijack DLL via system registry</p>
+<h2 id="trojan-horse">trojan horse</h2>
+<p>keywords:</p>
+<ul>
+<li>malicious code恶意代码</li>
+<li>negative impacts when triggered to execute,like stealing info触发时产生负面影响</li>
+<li>can&rsquo;t self-copy, can&rsquo;t spread 不会自我复制，自我传播</li>
+</ul>
+<p>types:</p>
+<ul>
+<li>executable file hided in file sys 可执行文件</li>
+<li>executable code hided 可执行代码</li>
+<li>Webshell</li>
+</ul>
+<h2 id="webshell">Webshell</h2>
+<p>a backdoor management shell on web server运行在web系统的shell，用于网站系统管理</p>
+<p>functions:</p>
+<ul>
+<li>file manage上传下载文件</li>
+<li>database manage管理数据库</li>
+<li>execute cmd执行指令</li>
+<li>upload and download files</li>
+</ul>
+<h2 id="dos-and-ddos">DoS and DDoS</h2>
+<p>Symptoms</p>
+<ul>
+<li>bandwidth</li>
+<li>PPS</li>
+<li>Storage</li>
+<li>CPU</li>
+</ul>
+<p>mechanisms</p>
+<ul>
+<li>system weakness</li>
+<li>0day attack</li>
+<li>consume system resources-&gt;cause low performance,high response time,etc</li>
+<li>flooding based attacks-&gt;unavailable system resources</li>
+</ul>
+<h1 id="第三章--malicious-code-恶意代码">第三章  malicious code 恶意代码</h1>
+<h2 id="internet-worm-蠕虫">internet worm 蠕虫</h2>
+<p>features</p>
+<ul>
+<li>spreading actively主动传播</li>
+<li>replicate inself for surviving自我复制</li>
+</ul>
+<p>spreading ways:</p>
+<ul>
+<li>existed vulnerablities现存漏洞</li>
+<li>created vulnerablities,buffer overflow etc创造漏洞</li>
+<li>social engineering methods,email etc社会工程方法</li>
+</ul>
+<p>components:</p>
+<ul>
+<li>Reconnaissance capabilities 			识别</li>
+<li>Specific attack capabilities                攻击</li>
+<li>Control capabilities                            控制</li>
+<li>Communications capabilities           通信</li>
+<li>Intelligence capabilities                     智能</li>
+</ul>
+<h3 id="packing-and-unpacking-increase-surviving-possibility">packing and unpacking-&gt;increase surviving possibility</h3>
+<p>![image-20191225144259716](C:\Users\Liu xida\AppData\Roaming\Typora\typora-user-images\image-20191225144259716.png)</p>
+<p>典型加壳技术：UPX</p>
+<h2 id="zombie-botnet僵尸网络">Zombie botnet僵尸网络</h2>
+<h3 id="zombie僵尸机器">zombie僵尸机器</h3>
+<p>被botnet agent入侵的主机，被用于执行攻击者的攻击指令，如DDoS攻击</p>
+<p>features:</p>
+<ul>
+<li>高传输率</li>
+<li>安全级别低</li>
+<li>远程</li>
+<li>大多数是 Windows</li>
+</ul>
+<p>common behaviors</p>
+<ul>
+<li>proliferation 复制</li>
+<li>repeating 重复入侵行为</li>
+<li>distribution 分布式</li>
+</ul>
+<h2 id="botnet-僵尸网络">botnet 僵尸网络</h2>
+<p>structure</p>
+<ul>
+<li>集中式</li>
+<li>层次架构</li>
+<li>整体P2P,局部C/S</li>
+<li>P2P</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<p>application:</p>
+<ul>
+<li>
+<p>信息和身份盗窃</p>
+</li>
+<li>
+<p>分布式拒绝服务（DDoS）</p>
+</li>
+<li>
+<p>软件盗版</p>
+</li>
+<li>
+<p>垃圾邮件/网络钓鱼</p>
+<ul>
+<li>几乎 80% 的邮件是垃圾邮件</li>
+<li>例如: Grum, Cutwail, Rustock</li>
+</ul>
+</li>
+<li>
+<p>地下经济</p>
+<ul>
+<li>
+<p>10,000 个肉鸡售价 15 美元</p>
+</li>
+<li>
+<ul>
+<li>僵尸网络难以枚举</li>
+</ul>
+</li>
+</ul>
+<h2 id="召集机制">召集机制</h2>
+<ul>
+<li>C&amp;C 位置解析</li>
+</ul>
+<h3 id="ip-地址硬编码">IP 地址硬编码</h3>
+<ul>
+<li>硬编码 IP 地址列表</li>
+<li>可以通过僵尸网络IP地址进行检测</li>
+</ul>
+<h3 id="动态dns">动态DNS</h3>
+<ul>
+<li>由动态 DNS 提供商分配的硬编码的 C&amp;C 域名</li>
+<li>当旧的 C&amp;C 服务器发生故障或被关闭时， 易于创建新的 C&amp;C 服务器</li>
+<li>Botmaster 可以随机更改位置，更加难以检测</li>
+</ul>
+<h3 id="分布式的dns">分布式的DNS</h3>
+<ul>
+<li>僵尸网络运行自己的DNS服务执法或其他当局的范围</li>
+<li>机器人使用 DNS 地址来解析 C&amp;C 服务器</li>
+<li>使用高端口号以避免安全设备和网关的检测</li>
+</ul>
+<h3 id="fluxing">Fluxing</h3>
+<ul>
+<li>提高适应性能</li>
+</ul>
+<h3 id="ip-flux-fast-flux">IP Flux （Fast-Flux）</h3>
+<ul>
+<li>持续变化的 IP 地址信息</li>
+<li>Single Flux
+<ul>
+<li>单一域名关联多个（100s-1000s） IP 地址</li>
+<li>快速注册/取消注册的IP地址
+<ul>
+<li>循环分配</li>
+<li>短时间（TTL） DNS A 记录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Double Flux
+<ul>
+<li>变换完整域名（Fully-Qualified Domain Name， FQDN）的 IP 地址</li>
+<li>用于查询 IP 地址的 DNS 服务器的 IP 地址也进行变换（NS records）</li>
+</ul>
+</li>
+</ul>
+<h3 id="域名-flux">域名 Flux</h3>
+<ul>
+<li>域通配符
+<ul>
+<li>在DNS记录中使用通配符
+<ul>
+<li>例如： <code>*.domain.com</code></li>
+</ul>
+</li>
+<li>用于垃圾邮件/网络钓鱼</li>
+<li>通配符信息被用于
+<ul>
+<li>识别受害者
+<ul>
+<li>一个独一的随机域名</li>
+<li>例如： <code>rjhgbrwh.domain.com</code></li>
+</ul>
+</li>
+<li>跟踪</li>
+<li>绕过反垃圾邮件检测</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>域名生成算法
+<ul>
+<li>每天创建 FQDN 动态列表
+<ul>
+<li>加密域名</li>
+</ul>
+</li>
+<li>生成的 FQD 由宿主进行轮询，以此查找 C&amp;C</li>
+<li>例如：蠕虫 Conficker.C
+<ul>
+<li>每天生成50,000个域名</li>
+<li>尝试联系500个</li>
+<li>如果操纵者每天只注册1个域名，则每天有1％的机会更新</li>
+<li>为了防止更新请求，需要每天注册50,000个新域名</li>
+</ul>
+</li>
+<li>好处
+<ul>
+<li>批量生成域名, 生存时间短（通常为1天）</li>
+<li>难以调查/阻止所有潜在的域名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="第四章-black-market-黑市">第四章 black market 黑市</h1>
+<h3 id="黑市black-market">黑市black market：</h3>
+<ul>
+<li>合作性的商业模型</li>
+<li>不正当或不合法的<strong>目的</strong>和<strong>技术手段</strong></li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<h3 id="暗网darknet">暗网darknet：</h3>
+<ul>
+<li>基于p2p网络架构和匿名传输机制</li>
+<li>利用互联网基础设施进行流量传输与通信</li>
+<li>使用非标准协议和端口，外界无法直接访问</li>
+</ul>
+<h3 id="社会工程学se">社会工程学SE:</h3>
+<ul>
+<li>通过人际交流的方式获得信息的非技术渗透手段</li>
+</ul>
+<h3 id="补充apt攻击">（补充）APT攻击：</h3>
+<p>高级可持续威胁攻击，定向威胁攻击</p>
+<p>要素：</p>
+<ul>
+<li>攻击者：拥有高水平专业知识和丰富资源的敌对方。</li>
+<li>攻击目的：破坏某组织的关键设施,或阻碍某项任务的正常进行</li>
+<li>攻击手段：利用多种攻击方式,通过在目标基础设施上建立并扩展立足点来获取信息。</li>
+<li>攻击过程：在一个很长的时间段内潜伏并反复对目标进行攻击,同时适应安全系统的防御措施,通过保持高水平的交互来达到攻击目的。</li>
+</ul>
+<h3 id="钓鱼攻击">钓鱼攻击：</h3>
+<ul>
+<li>技术手段与社会工程学相结合，窃取个人信息和财务账户</li>
+<li>通常使用钓鱼邮件和木马等手段</li>
+</ul>
+<p>分类：</p>
+<ul>
+<li>Deceptive phishing诱导式钓鱼攻击，e.g. call for action</li>
+<li>Cousin domain attack 仿冒域名攻击</li>
+<li>malware-based phishing attack基于恶意软件的钓鱼攻击
+<ul>
+<li>keyloggers键盘输入记录</li>
+<li>session hijackers</li>
+<li>web trojans 水坑攻击 水坑攻击利用网站的弱点在其中植入攻击代码，攻击代码利用浏览器的缺陷，被攻击者访问网站时终端会被植入恶意程序或者直接被盗取个人重要信息</li>
+<li>DNS poisoning 域欺骗 通过入侵DNS server使用户在访问域名解析服务器进行域名解析时被定向到钓鱼网站</li>
+</ul>
+</li>
+<li>搜索引擎钓鱼攻击：欺骗式攻击的一种，通过虚假网页获取受害者信息</li>
+</ul>
+<h3 id="面向下载的黑市">面向下载的黑市：</h3>
+<h4 id="pay-per-install-market">Pay-Per-Install market</h4>
+<p>客户：希望安装程序到一定数量目标主机的实体，付钱给服务提供者并提供需要安装的程序</p>
+<p>服务提供者：安装客户的程序到受害者的主机上，并向客户收费</p>
+<p><!-- raw HTML omitted --></p>
+<h3 id="以市场为中心的黑市">以市场为中心的黑市</h3>
+<p>一种外包的市场活动，为非法交易提供平台</p>
+<p>要素</p>
+<ul>
+<li>仿冒的药物、软件、奢侈品等交易物</li>
+<li>分销商：垃圾信息零售内容</li>
+<li>后台服务：支付、递送、客户支持</li>
+<li>click support:进行重定向，fast-flux</li>
+</ul>
+<h3 id="fast-flux-一种用于隐藏ip的技术">fast-flux 一种用于隐藏IP的技术</h3>
+<p>在正常的DNS服务器中，用户对同一个域名做DNS查询，在较长的一段时间内，无论查询多少次返回的结果基本上是不会改变的。</p>
+<p>Fast-flux技术是指不断改变域名和IP地址映射关系的一种技术，也就是说在短时间内查询使用Fast-flux技术部署的域名，会得到不同的结果。</p>
+<h3 id="恶意黑市">恶意黑市</h3>
+<p>泄露的用户信息</p>
+<ul>
+<li>撞库：黑客用得到的用户名和密码信息去尝试登录其他网站</li>
+<li>拖库：黑客入侵网站并下载它的用户数据库</li>
+<li>洗库：黑客在黑市上出售用户数据</li>
+</ul>
+<h1 id="第五章-intrusion-detection入侵检测">第五章 intrusion detection入侵检测</h1>
+<p>概念辨析：</p>
+<ul>
+<li>surveillance：对行为，活动，或其他改变的信息的监控
+<ul>
+<li>situational awareness态势感知</li>
+</ul>
+</li>
+<li>censorship：对敏感、有害内容的监视
+<ul>
+<li>content awareness内容感知</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络安全监控surveillance">网络安全监控（surveillance）</h3>
+<p>监控点：主机/网络</p>
+<p>任务：安全事件监控</p>
+<ul>
+<li>微观：非法进入、预料外的变化、可疑活动</li>
+<li>宏观：对收集的安全事件进行系统性分析，评估对网络的威胁</li>
+</ul>
+<p>手段：</p>
+<ul>
+<li>基于网络的入侵检测</li>
+<li>基于主机的入侵检测</li>
+<li>渗透测试</li>
+<li>蜜罐</li>
+<li>基于政策的入侵检测</li>
+<li>NMS 流量行为分析</li>
+</ul>
+<h3 id="入侵检测系统-intrusion-detect-system">入侵检测系统 Intrusion Detect System</h3>
+<p>识别任何越过安全行为界限的企图</p>
+<p>理想IDS: 不存在</p>
+<ul>
+<li>100%准确率</li>
+<li>及时性</li>
+<li>完整攻击分析</li>
+<li>推荐解决方案</li>
+</ul>
+<p>可能结果：</p>
+<table>
+<thead>
+<tr>
+<th align="center">发生\报告</th>
+<th align="center">Y</th>
+<th align="center">N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Y</td>
+<td align="center">True positive</td>
+<td align="center">False negative</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center">False positive</td>
+<td align="center">True  negative</td>
+</tr>
+</tbody>
+</table>
+<p>$$
+Acc=\frac{TP+TN}{TP+TN+FP+FN}\<br>
+$$</p>
+<p>Let D be alert,M is malicious payload
+$$
+P(M|D)=\frac{P(D|M)P(M)}{P(D)}
+$$</p>
+<h2 id="abnormal-detection">abnormal detection</h2>
+<h3 id="anomaly-detection-异常检测">Anomaly detection 异常检测</h3>
+<p>定义：不符合预期的行为模式</p>
+<p>目标：分析网络或系统行为并推测那些是合理的</p>
+<p>任务：</p>
+<ul>
+<li>使用统计学方法或机器学习方法建立normal event模型</li>
+<li>若检查到不符合normal event模型的事件则报警</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<p>关键问题：</p>
+<p>类似机器学习的问题</p>
+<ul>
+<li>输入原始数据：用一系列特征描述的样本</li>
+<li>模型选取（监督学习、半监督、无监督学习）</li>
+<li>输出
+<ul>
+<li>分值</li>
+<li>标签（二分类问题：Y\N）</li>
+</ul>
+</li>
+</ul>
+<p>方法论：</p>
+<ul>
+<li>基于分类的分析算法</li>
+<li>最近邻分析</li>
+<li>聚类分析</li>
+<li>统计异常分析</li>
+<li>信息理论分析：异常信息的数据集合中包含非规律部分</li>
+<li>谱异常分析：降维分析，适用于高维/无监督</li>
+</ul>
+<p>举例：</p>
+<ul>
+<li>特征：字节出现频率</li>
+<li>算法：基于频率的分类算法</li>
+<li>前提猜想：攻击负荷具有不同的字节频率特征</li>
+</ul>
+<h4 id="异常检测的实现">异常检测的实现：</h4>
+<p>网络流量异常检测</p>
+<p>主机异常检测</p>
+<p>混合异常检测</p>
+<p>基于人工免疫方法的异常检测</p>
+<ul>
+<li>检测器相当于抗体，由主IDS产生</li>
+<li>网络中驻留IDS功能的主机（次级IDS）相当于淋巴腺</li>
+</ul>
+<h3 id="misuse-detection">misuse detection</h3>
+<h4 id="目标">目标：</h4>
+<ul>
+<li>利用已经知道的攻击特征</li>
+<li>检测入侵行为</li>
+</ul>
+<h4 id="传统滥用检测方法">传统滥用检测方法</h4>
+<ul>
+<li>network grep:在网络连接中查找可能以为着攻击的字符串</li>
+<li>pattern matching：</li>
+</ul>
+<h4 id="整体系统结构">整体系统结构：</h4>
+<ul>
+<li>报文检测模块（采集模块）</li>
+<li>入侵检测模块（核心）</li>
+<li>分析处理模块：又称事件后处理模块</li>
+</ul>
+<h4 id="数据采集">数据采集</h4>
+<p>报文采集的方法 物理</p>
+<ul>
+<li>广播侦听采集：同一网段下，网卡的混淆模式</li>
+<li>端口映射采集：不同网段，但接入同一交换机</li>
+<li>分光采集：不直接接入被检测网络，而是利用分光器从光纤线路分光</li>
+</ul>
+<p>软件</p>
+<p>tcpdump PCAP WireShark</p>
+<h4 id="检测规则处理">检测规则处理</h4>
+<ul>
+<li>检测规则的内存表示</li>
+<li>一句报文的报头/报文部分进行匹配分类
+<ul>
+<li>基于报头字段分类的算法
+<ul>
+<li>Hicuts:适用于大规模的高速报文分类算法</li>
+</ul>
+</li>
+<li>基于报文字段的分类算法
+<ul>
+<li>BM算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="事后处理">事后处理</h4>
+<p>警报关联</p>
+<ul>
+<li>基于相似性关联</li>
+<li>基于因果关系</li>
+<li>基于实例关联</li>
+</ul>
+<p>冗余消除</p>
+<h3 id="蜜罐honeypot">蜜罐HoneyPot</h3>
+<p>一种安全资源，价值在于被扫描，攻击和攻陷。为我们提供额外的，有价值的信息</p>
+<h4 id="交互度">交互度：</h4>
+<p>交互度越低，部署难度越低，但获取的信息越少；</p>
+<p>反之，提高交互度，部署难度增大，风险提高，但可以获取的信息更多。</p>
+<h4 id="核心机制">核心机制</h4>
+<ul>
+<li>欺骗性的环境
+<ul>
+<li>服务器端，应用层，客户端</li>
+<li>蜜标</li>
+</ul>
+</li>
+<li>捕获有威胁的信息</li>
+<li>分析有威胁的信息</li>
+</ul>
+<h4 id="辅助机制">辅助机制</h4>
+<ul>
+<li>风险控制</li>
+<li>行为管理</li>
+<li>抵抗反蜜罐</li>
+</ul>
+<h4 id="优势">优势</h4>
+<ul>
+<li>数据采集量少，价值高</li>
+<li>能够收集新的攻击工具和方法</li>
+<li>设计和配置简单，资源消耗少</li>
+</ul>
+<h4 id="劣势">劣势</h4>
+<ul>
+<li>观测视野有限</li>
+<li>伪装技术不够成熟，易被攻击者识破</li>
+<li>带来一定安全风险：即蜜罐被攻破，成为攻击跳板</li>
+</ul>
+<h3 id="蜜网honeynet">蜜网honeynet</h3>
+<p>本质与蜜罐相同</p>
+<p>区别在于蜜网是一个网络，包含了多个蜜罐</p>
+<p>蜜网的作用：</p>
+<ul>
+<li>使用价值：阻断，检测，响应</li>
+<li>研究价值：收集信息，建立模型，安全测试</li>
+</ul>
+<h2 id="第六章-网络安全防御">第六章 网络安全防御</h2>
+<h3 id="网络安全管理">网络安全管理</h3>
+<h4 id="可生存性">可生存性</h4>
+<ul>
+<li>攻击抵御能力</li>
+<li>损失评估能力</li>
+<li>灾后恢复能力</li>
+<li>环境适应能力</li>
+</ul>
+<h4 id="三个层次">三个层次</h4>
+<ul>
+<li>入侵防范</li>
+<li>入侵检测</li>
+<li>入侵容忍</li>
+</ul>
+<h4 id="基本任务">基本任务</h4>
+<ul>
+<li>了解网络现状</li>
+<li>感知威胁</li>
+<li>确保安全政策的实施</li>
+</ul>
+<h4 id="网络安全管理的实现">网络安全管理的实现</h4>
+<ul>
+<li>安全管理原则
+<ul>
+<li>多人负责</li>
+<li>任期有限</li>
+<li>职责分离</li>
+</ul>
+</li>
+<li>安全管理模式
+<ul>
+<li>Deny all</li>
+<li>Allow all</li>
+</ul>
+</li>
+<li>工作范围
+<ul>
+<li>物理安全</li>
+<li>访问控制</li>
+<li>系统控制</li>
+<li>人员控制</li>
+<li>安全事件紧急响应控制</li>
+</ul>
+</li>
+<li>日常工作
+<ul>
+<li>网络安全一般性审计检查</li>
+<li>网络安全事件处理</li>
+</ul>
+</li>
+<li>管理机构</li>
+</ul>
+<h3 id="脆弱性检测">脆弱性检测</h3>
+<h4 id="目标-1">目标</h4>
+<h5 id="找到安全漏洞">找到安全漏洞：</h5>
+<ul>
+<li>找到系统中符合已知特征的漏洞</li>
+<li>内部或外部漏洞扫描</li>
+</ul>
+<h4 id="网络漏洞扫描">网络漏洞扫描：</h4>
+<ul>
+<li>端口扫描
+<ul>
+<li>TCP SYN</li>
+<li>TCP FIN</li>
+</ul>
+</li>
+</ul>
+<h5 id="工具">工具</h5>
+<ul>
+<li>
+<p>Nmap</p>
+<ul>
+<li>垂直扫描方式：主机发现-&gt;端口扫描-&gt;服务扫描-&gt;操作系统扫描-&gt;脚本扫描</li>
+<li>具有脚本扫描功能，更全面</li>
+</ul>
+</li>
+<li>
+<p>Zmap</p>
+<ul>
+<li>扫描功能更差，但性能强</li>
+<li>扫描效率高，时间短</li>
+</ul>
+<h3 id="协同防御">协同防御</h3>
+</li>
+</ul>
+<h2 id="第七章-网络攻击阻断">第七章 网络攻击阻断</h2>
+<h3 id="防火墙">防火墙</h3>
+<p>一种特殊的访问控制设施，依照预定义的安全政策过滤通过它的数据</p>
+<p>种类：</p>
+<ul>
+<li>
+<p>IP Firewall</p>
+<ul>
+<li>通常实现在路由器中</li>
+<li>根据IP源\目的地址来过滤报文</li>
+<li>由于内部主机和外部主机存在直接ip报文交互，即使防火墙的过滤功能停止也不影响其连通性，网络性能好，很好的透明性</li>
+</ul>
+</li>
+<li>
+<p>应用级防火墙（代理防火墙）</p>
+<ul>
+<li>使用代理来跨网络桥接</li>
+<li>内部主机和外部主机无直接IP报文交互，全部数据由客户代理进行中继</li>
+</ul>
+</li>
+<li>
+<p>链路防火墙</p>
+<ul>
+<li>为链接提供数据安全保护服务</li>
+<li>VPN是一种链路层防火墙</li>
+</ul>
+</li>
+<li>
+<p>Web应用防火墙</p>
+<ul>
+<li>专门为Web应用提供保护</li>
+<li>使用针对HTTP/HTTPS的安全策略</li>
+</ul>
+<h4 id="ip防火墙">IP防火墙</h4>
+<p>过滤规则定义在访问控制列表ACL中</p>
+<p>过滤规则基于安全策略</p>
+<p>规则被定义为一个<strong>有序</strong>的集合中</p>
+<p>在检测时报文按顺序与规则匹配</p>
+<h4 id="stateful-firewall-状态检测防火墙">stateful firewall 状态检测防火墙</h4>
+<p>在IP放火墙的基础上加入上下文信息，并以状态的概念表示</p>
+<p>以TCP为过滤单位</p>
+<p>需要更大的存储空间</p>
+<p>只对每个链接的第一个报文做检测</p>
+</li>
+</ul>
+<h4 id="防火墙的特点">防火墙的特点</h4>
+<p>pros</p>
+<ul>
+<li>对终端设备没有额外负担，对性能的影响小</li>
+<li>基于IP的访问控制列表ACL或基于协议的IPS</li>
+<li>易于部署和维护</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>最小防御政策</li>
+<li>对于非对阵路由需要协作</li>
+<li>可能因为其单点失效的特性而成为攻击目标（单点失效：指系统中一个组件的失效会导致整个系统功能的异常）</li>
+<li>存在规避可能</li>
+</ul>
+<h4 id="在哪里部署">在哪里部署</h4>
+<h5 id="基本原则">基本原则</h5>
+<ul>
+<li>保护重要目标</li>
+<li>在开销和收益间找到平衡</li>
+<li>主机安全和防火墙安全的平衡</li>
+<li>性能和服务代价</li>
+</ul>
+<p>部署方式</p>
+<ul>
+<li>
+<p>路由器过滤方式（有孔方式）</p>
+<ul>
+<li>利用内外边境路由器提供IP报文过滤功能</li>
+<li>开放某些端口用于服务器端通信，易成为攻击者的绕开防火墙的跳板（80，53）</li>
+</ul>
+</li>
+<li>
+<p>主机过滤方式（无孔方式）</p>
+<ul>
+<li>内网从外网无法访问</li>
+<li>所有需要被外网访问的服务都定位在堡垒主机中</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>DMZ方法</p>
+<ul>
+<li>不同网段可以实施不同的安全策略和过滤方法</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>结构化防御</p>
+</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<h3 id="会话拦截">会话拦截</h3>
+<h4 id="传输层tcp链接的会话拦截">传输层TCP链接的会话拦截</h4>
+<p>通过插入人为的TCP RST/FIN 报文来造成终端停止会话链接</p>
+<h4 id="基于dns重定向的会话拦截">基于DNS重定向的会话拦截</h4>
+<p>DNS cache污染</p>
+<h3 id="计算机取证">计算机取证</h3>
+<h4 id="取证模型">取证模型</h4>
+<ul>
+<li>现场安全保证及隔离</li>
+<li>记录现场</li>
+<li>系统的查找证据</li>
+<li>证据的打包和提取</li>
+<li>维护证据链</li>
+</ul>
+<h4 id="集成数字调查模型">集成数字调查模型</h4>
+<p>准备阶段</p>
+<p>部署阶段</p>
+<p>物理犯罪现场调查</p>
+<p>数字犯罪现场调查</p>
+<p>总结阶段</p>
+<h4 id="操作原则">操作原则</h4>
+<h3 id="黑色郁金香">黑色郁金香</h3>
+<p>荷兰一CA机构遭受网络攻击</p>
+<h2 id="受控安全访问">受控安全访问</h2>
+<h3 id="身份认证">身份认证</h3>
+<p>可靠得验证某人的身份的过程</p>
+<p>为仲裁和审计提供证据</p>
+<p>鉴别的功能</p>
+<ul>
+<li>证实处理对象的真实性</li>
+<li>证实交互动作的真实性</li>
+<li>证实消息的时效性</li>
+</ul>
+<h3 id="零知识证明">零知识证明</h3>
+<p>Alice可以向他人证明自己持有一个秘密，且这个过程不会向别人泄露秘密的内容</p>
+<p>一个基本的零知识证明协议：Challenge-Response</p>
+<ul>
+<li>
+<p>是组合电子签名的实现机制，使用对称密钥</p>
+</li>
+<li>
+<p>可能遭受中间人攻击</p>
+<h3 id="单向验证">单向验证</h3>
+<p>A 向 B 证明自己的身份</p>
+<ul>
+<li>B总是被认为安全的</li>
+<li>可能遭受<strong>重放攻击</strong></li>
+</ul>
+<h4 id="一轮对称密钥身份验证">一轮对称密钥身份验证</h4>
+<ul>
+<li>
+<p>A B共享密钥K</p>
+</li>
+<li>
+<p>发送E(Random)以防范重放攻击</p>
+</li>
+</ul>
+<h4 id="一轮公钥身份验证">一轮公钥身份验证</h4>
+<p><!-- raw HTML omitted --></p>
+<h4 id="两轮身份验证">两轮身份验证</h4>
+<ul>
+<li>
+<p>共享密钥</p>
+<ul>
+<li>存在中间人攻击</li>
+</ul>
+</li>
+<li>
+<p>公钥</p>
+<ul>
+<li>使用对方公钥加密</li>
+<li>需要确保对方公钥和法</li>
+</ul>
+</li>
+<li>
+<p>时间戳</p>
+<ul>
+<li>检查时间线</li>
+</ul>
+<h4 id="message-authentication-code">Message Authentication Code</h4>
+<p>一个用于验证消息并提供消息完整性和可靠性保障的加密消息摘要</p>
+<h4 id="hmac">HMAC</h4>
+<p>使用共享密钥K和哈希函数H生成MAC</p>
+<p><!-- raw HTML omitted --></p>
+<h3 id="口令技术">口令技术</h3>
+<p>口令技术的优势</p>
+<ul>
+<li>低成本</li>
+<li>灵活</li>
+<li>可废除可更换</li>
+<li>无需额外隐私保护</li>
+</ul>
+<p>口令技术弱点</p>
+<ul>
+<li>带有规律性的选择</li>
+<li>重复使用</li>
+<li>包含个人信息的密码（生日)</li>
+</ul>
+<h4 id="口令管理">口令管理</h4>
+<p>密钥保护方法</p>
+<ul>
+<li>分割</li>
+<li>一次一密</li>
+<li>加密/哈希</li>
+<li>KDC密钥发布中心</li>
+</ul>
+<p>密钥可能受到的攻击</p>
+<ul>
+<li>联机攻击：反复尝试</li>
+<li>脱机攻击：字典攻击</li>
+</ul>
+<h4 id="秘密共享机制-shamir">秘密共享机制 Shamir</h4>
+<p>将密钥K分成w个子密钥并分配出去，其中凑齐t个可以一起恢复出密钥K</p>
+<p>存在拜占庭将军问题：</p>
+<ul>
+<li>不诚实结点可能会提供错误的子密钥</li>
+<li>不诚实结点可能会伙同他人非法恢复密钥</li>
+</ul>
+<h4 id="远程安全口令srp">远程安全口令SRP</h4>
+<p>独立于应用系统的双向鉴别与会话密钥建立机制</p>
+<p>基于用户身份，口令，离散对数和Diffie-Hellman变换</p>
+<p>不需要可信任的KDC或者密钥服务器</p>
+<p>客户端无需保存口令密钥</p>
+<h4 id="第二鉴别机制">第二鉴别机制</h4>
+<p>当用户不能提供正确口令时的身份鉴别方法</p>
+<ul>
+<li>基于知识
+<ul>
+<li>安全问题</li>
+<li>旧口令</li>
+</ul>
+</li>
+<li>基于可信通道
+<ul>
+<li>电子邮件</li>
+<li>手机短信</li>
+<li>实人验证</li>
+</ul>
+</li>
+</ul>
+<p>根据木桶原则，第二鉴别机制的安全强度不应该低于口令的安全性</p>
+<p>原则</p>
+<ul>
+<li>可靠性</li>
+<li>安全性</li>
+<li>鉴别效率</li>
+<li>设置效率</li>
+</ul>
+<h3 id="基于kdc的身份鉴别">基于KDC的身份鉴别</h3>
+<h4 id="kdc密钥分配中心">KDC密钥分配中心</h4>
+<p><!-- raw HTML omitted --></p>
+<h4 id="needham-schroeder-scheme">Needham-Schroeder Scheme</h4>
+<p><!-- raw HTML omitted --></p>
+<p>五报文的Schroeder方法存在安全缺陷：</p>
+<p>M1M2与M3M4M5之间缺少关联性</p>
+<p>攻击者可以利用之前的合法身份重复M3到M5的交互</p>
+<h4 id="扩展schroeder方法">扩展Schroeder方法</h4>
+<p><!-- raw HTML omitted --></p>
+<p>可以缩减为6个报文</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="kerberos">kerberos</h3>
+<p>分布式鉴别服务系统</p>
+<p>基于KDC和needham-schroeder方法</p>
+<p>提供自动鉴别、数据安全性和完整性服务、密钥管理服务</p>
+<p>静态主密钥和动态会话密钥</p>
+<h4 id="概念">概念</h4>
+<p>主体：用户/应用进程</p>
+<p>客体：网络中的主机</p>
+<p>AS鉴别服务器：提供KDC服务</p>
+<p>会话</p>
+<p>TGT通知单：用户请求会话密钥的回执单</p>
+<h4 id="过程">过程</h4>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<h4 id="kerberos-v5">kerberos V5</h4>
+<p>增加了代理的概念</p>
+<h3 id="身份管理">身份管理</h3>
+<p>一种网络安全技术，其目的是能使合法的用户在异构的环境中能以合理的理由在合适的时间访问恰当的资源</p>
+<h4 id="基于身份管理的sso过程">基于身份管理的SSO过程</h4>
+<p><!-- raw HTML omitted --></p>
+<h4 id="shibboleth系统">Shibboleth系统</h4>
+<h2 id="第九章-网络基础设施保护">第九章 网络基础设施保护</h2>
+<h1 id="课后习题">课后习题</h1>
+<h2 id="第一章">第一章</h2>
+<p>1.<strong>安全的相对性</strong></p>
+<ul>
+<li>系统的安全是相对于安全需求的</li>
+<li>同一种资源对于不同拥有者的价值不同</li>
+<li>安全措施的运用具有成本，并非越多越好，而是需要根据安全目标和系统风险选择</li>
+</ul>
+<p>2.<strong>数据在保密性、完整性、真实性、所有权都得以保持的情况下是否会出现不可用的情况</strong></p>
+<p>可能</p>
+<p>上述保证的是系统的安全性，而没有保证系统容错、系统可依赖性和系统可靠性</p>
+<p>3.<strong>对手思维的例子</strong></p>
+<p>网络空间存在对手，任何方法和技术的提出都可能引起对手的攻击研究，因此所有技术和方法都需要考虑对手的存在</p>
+<p>例如</p>
+<p>4.<strong>系统思维的例子</strong></p>
+<p>网络是一个复杂的系统</p>
+<p>组件安全不等于系统安全</p>
+<p>同时，具有木桶效应，即系统的脆弱性由最薄弱的一部分决定</p>
+<p>在网络模型中，底层协议对于上层协议是透明的，因此起到了承载的作用</p>
+<p>若底层协议，如链路层协议，存在安全漏洞，则影响整个网络安全</p>
+<h2 id="第二章">第二章</h2>
+<p>1.<strong>网络攻击的分类依据</strong></p>
+<p>发起方式：</p>
+<ul>
+<li>主动
+<ul>
+<li>服务失效</li>
+<li>信息篡改</li>
+<li>资源盗用</li>
+<li>信息伪造</li>
+</ul>
+</li>
+<li>被动
+<ul>
+<li>窃听</li>
+<li>社工</li>
+</ul>
+</li>
+</ul>
+<p>目的</p>
+<ul>
+<li>完整性破坏</li>
+<li>窃取信息</li>
+<li>服务失效</li>
+<li>资源滥用</li>
+</ul>
+<p>2.<strong>什么是网络黑客行为？共性？</strong></p>
+<p>非正常方式访问计算机系统和系统应用</p>
+<p>按照目的细分</p>
+<ul>
+<li>社区</li>
+<li>技术</li>
+<li>经济</li>
+<li>政治</li>
+<li>政府</li>
+</ul>
+<p>3.<strong>安全漏洞和安全威胁的区别</strong></p>
+<p>漏洞：系统设计、实现、运行、管理过程中存在的弱点，这些弱点可以被利用于违背系统安全策略</p>
+<p>威胁：安全漏洞只有可被利用且有人利用时，才会产生安全威胁</p>
+<p>4.<strong>安全漏洞是否一定披露？什么样的不会被披露</strong></p>
+<p>不是一定披露</p>
+<p>只有由于设计和实现阶段产生的安全漏洞才需要披露</p>
+<p>由于管理而产生的安全漏洞通常不披露</p>
+<p>5.<strong>入侵攻击传统模型和网络杀伤链模型的区别</strong></p>
+<p>传统模型由于网络攻击变得更加隐蔽而显得过于粗糙</p>
+<p>与传统模型相比，网络杀伤链是系统化、集成化的攻击方式</p>
+<p>6.<strong>攻击的战术和技术</strong></p>
+<p>战术是攻击者的近期目标</p>
+<p>技术是攻击者达成目标的手段</p>
+<p>7.<strong>网络入侵攻击中进入的目的</strong></p>
+<p>进入是攻击者获取系统用户权限的操作</p>
+<p>可以为攻击者提供攻击的落脚点，之后通过提权操作获取更高权限</p>
+<p>8.<strong>进入攻击方法中的对手思维</strong></p>
+<p>SQL注入中盲注入是由于防守方通过屏蔽数据库返回的错误信息而产生的技术</p>
+<p>与传统直接注入相比体现了由于对手的存在而改变自身攻击手段</p>
+<p>9.<strong>木马服务于ATT&amp;CK模型中的哪些战术？需要具备什么功能？</strong></p>
+<p>木马服务于进入战术</p>
+<p>在进入目标主机后，需要具备存活，收集主机信息，控制主机等功能</p>
+<p>10.<strong>服务失效攻击的对象？对象的特点？</strong></p>
+<p>网络基础设施</p>
+<p>关键信道</p>
+<p>特定服务</p>
+<p>这些目标都是系统的关键组件和部分，对于这些目标的攻击可以很好的实现攻击者的攻击动机，如经济上的恶意竞争，政治抗议等。</p>
+<h2 id="第三章">第三章</h2>
+<p>1.<strong>网络蠕虫与僵尸网络的行为共性与区别</strong></p>
+<p>僵尸网络是网络蠕虫的发展与进化</p>
+<p>攻击者控制被蠕虫感染的计算机系统，并借此实施有利可图的攻击行为，实际就是僵尸网络</p>
+<p>共性：自我复制，主动传播，利用漏洞，行踪隐蔽，造成网络拥塞，降低系统性能</p>
+<p>不同：蠕虫收集信息，留下后门；而僵尸网络控制被感染主机发动攻击</p>
+<p>2.<strong>试概括morris蠕虫的攻击流程</strong></p>
+<p>扫描，攻击，现场处理，复制</p>
+<p>3.<strong>僵尸程序从哪些方面考虑了自身的隐蔽性</strong></p>
+<p>程序自身：感知当前系统环境，防止沙盒等受控环境</p>
+<p>​					程序与数据加密，绕过杀软和入侵检测</p>
+<p>通信方面：使用C&amp;C指令控制信道，使攻击者隐藏</p>
+<p>​					使用Fast Fluxing,变换IP和域名的关系,防止暴露</p>
+<p>4.<strong>试分析Domain Fluxing的工作效率</strong></p>
+<p>根据字典生成随机字符串，注册域名</p>
+<h2 id="第四章">第四章</h2>
+<p>1.<strong>黑色产业链中的合法参与者</strong></p>
+<p>角色本身并无合法非法之分，要看目的和行为</p>
+<p>例如需求提供者想要发布广告是合法的，而服务提供者采用垃圾邮件的方式，则是非法的</p>
+<p>需求提供者-服务提供者-信息提供者-基础设施提供者-工具开发者</p>
+<p>2.<strong>暗网要具备怎样的条件？如何构造暗网？</strong></p>
+<p>从用户角度：隐藏入口的网站，需要通过特殊的渠道获得其入口标识</p>
+<p>传输角度：隐藏网络拓扑，采用匿名通信技术和非标准通信协议</p>
+<p>3.<strong>网络杀伤链和社会工程攻击基本流程框架的异同</strong></p>
+<p>攻击意图确定-信息收集-攻击准备-攻击接触-攻击持续-攻击撤离</p>
+<p>侦察-武器化-投放-漏洞利用-安装-命令与控制-攻击目的实现</p>
+<p>4.<strong>黑产中哪些角色会用到社会工程手法</strong></p>
+<p>服务提供者-钓鱼攻击时使用社工手段</p>
+<p>5.<strong>基于互惠心理的社工例子</strong></p>
+<p>电信诈骗中先让受害者尝到甜头，网络红包诈骗</p>
+<p>6.<strong>基于强烈情绪影响的社工例子</strong></p>
+<p>电信诈骗冒充政法机构，使受害者紧张</p>
+<p>7.<strong>网络钓鱼攻击的基本目的</strong></p>
+<p>窃取被攻击者的敏感信息，为后续攻击做准备；或者出售牟利</p>
+<p>8.<strong>面向下载和面向销售的产业链区别和共性</strong></p>
+<p>PPI产业链应用于广告推广和软件下载方面，本身是合法商业模式，但如果推广内容或过程违法，则是不合法的</p>
+<p>销售黑产链以销售为最重要目标，销售的商品或服务都是违法的。</p>
+<p>9.<strong>勒索软件的用户域解密</strong></p>
+<p>在用户可及的范围内使用对称加密密钥进行加密</p>
+<p>很容易通过逆向工程等方法找到密钥并恢复</p>
+<p>10.<strong>社工方法如何应用到APT攻击</strong></p>
+<p>基本手段是鱼叉式钓鱼和水坑攻击</p>
+<p>水坑攻击：在受害者经常访问的网站植入攻击代码，当受害者访问时受到XSS攻击</p>
+<h2 id="第五章">第五章</h2>
+<p>1.<strong>入侵检测系统的分类依据</strong></p>
+<p>滥用检测-基于规则的检测，定义哪些是异常，剩下的都是正常的</p>
+<p>异常检测-基于行为的检测，定义哪些是正常的，剩下的都是异常</p>
+<p>2.<strong>异常检测和滥用检测的优势和劣势</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">优势</th>
+<th align="center">劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">滥用检测</td>
+<td align="center">误报率低 技术成熟，易于实现</td>
+<td align="center">不能检测新的入侵行为，检测有效性依赖于特征库</td>
+</tr>
+<tr>
+<td align="center">异常检测</td>
+<td align="center">能检测新的入侵  较少依赖特定主机系统</td>
+<td align="center">行为基准模型建模困难  误报率较高</td>
+</tr>
+</tbody>
+</table>
+<p>3.<strong>滥用检测的主要功能和涉及算法</strong></p>
+<p>根据已知特征检测入侵</p>
+<p>报文采集，规则分类算法，规则特征匹配算法，事件关联</p>
+<p>经典开源网络滥用检测系统：Snort系统和Zeek系统</p>
+<p>4.<strong>基于计算机计算机免疫学的异常检测系统，检测器是什么，如何构造</strong></p>
+<p>主IDS生成检测器集合，</p>
+<p>预检测器通过阴性选择生成成熟检测器，在克隆选择复制表现良好的检测器</p>
+<p>5.<strong>云计算环境与物联网环境的检测</strong></p>
+<p>云环境：滥用检测，异常检测，虚机内省，管理程序内省</p>
+<p>物联网：基于特征，异常检测方法，基于规范的方法，混合方法</p>
+<p>6.<strong>蜜罐的概念和分类</strong></p>
+<p>吸引攻击者的陷阱，用于分散攻击者的注意，收集攻击方法和攻击者的信息</p>
+<p>应用目的：产品型，研究型</p>
+<p>交互度：低中高交互蜜罐</p>
+<p>实现方式：物理蜜罐，虚拟蜜罐</p>
+<p>7.<strong>蜜罐的服务模拟</strong></p>
+<p>模拟特定的服务，达到欺骗攻击者的目的</p>
+<p>8.<strong>蜜罐架构的核心需求</strong></p>
+<p>诱骗组件，监视组件，威胁数据捕获与分析</p>
+<h2 id="第六章">第六章</h2>
+<p>1.<strong>系统脆弱性评估的基本思路</strong></p>
+<p>依靠技术手段对系统进行检测，找出可能的安全隐患</p>
+<p>网络漏洞扫描</p>
+<p>基于攻击图的脆弱性评估-目标模型构建，攻击图构建，攻击图分析</p>
+<p>2.<strong>为什么实行系统分级保护</strong></p>
+<p>不同系统在国家安全，社会生活和经济建设中的重要程度不同</p>
+<p>3.<strong>安全政策</strong></p>
+<p>4.<strong>网络扫描活动的特征</strong></p>
+<p>引起网络阻塞</p>
+<p>5.<strong>Nmap和Zmap的对比</strong></p>
+<p>6.<strong>协同入侵检测和单点入侵检测对比</strong></p>
+<p>分布式的入侵检测系统，克服集中式的瓶颈，提高可靠性</p>
+<h2 id="第七章">第七章</h2>
+<p>1.防火墙有孔和无孔的差别？选用时最基本的考虑是什么</p>
+<p>2.防范垃圾邮件的基本原则和基本思路</p>
+<p>3.黑色郁金香事件</p>
+<h2 id="第八章">第八章</h2>
+<p>1.MAC码的生成要求与作用</p>
+<p>2.重放攻击</p>
+<p>3.鉴别协议设计原则</p>
+<h2 id="第九章">第九章</h2>
+<p>1.IPsec的</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
