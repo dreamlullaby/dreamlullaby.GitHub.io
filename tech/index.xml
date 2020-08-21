@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Teches on Liu&#39;s Blog</title>
-    <link>https://dreamlullaby.github.io/tech/</link>
+    <link>http://dreamlullaby.github.io/tech/</link>
     <description>Recent content in Teches on Liu&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     
-	<atom:link href="https://dreamlullaby.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://dreamlullaby.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>准备面试的一些知识点</title>
-      <link>https://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <link>http://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <guid>http://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
       <description>信息安全管理方向  对于内控、合规、审计的理解  考察其对于要做的事情和岗位要求、公司环境是否匹配 考察其大局上考虑是否周全或是片面    合规：广义上的合规指的是企业在生产运营中符合法律法规、企业内部规章制度以及企业员工具有良好的职业规范和道德操守。
 合规三个层次：
 第一层是具有强制性的法律法规，即企业总部所在国和经营所在国的具有强制性的法律规定及监管规定；

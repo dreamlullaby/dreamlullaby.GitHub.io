@@ -6,14 +6,14 @@
 <title>准备面试的一些知识点 - Liu&#39;s Blog</title>
 <meta name="description" content="a CS student@SEU, interseted in Cybersecurity Management">
 <meta name="generator" content="Hugo 0.68.0" />
-<link href="https://dreamlullaby.github.io/index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="https://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">
-<link rel="stylesheet" href="https://dreamlullaby.github.io/css/theme.min.css">
+<link href="http://dreamlullaby.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">
+<link rel="stylesheet" href="http://dreamlullaby.github.io/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<link rel="stylesheet" href="https://dreamlullaby.github.io/css/chroma.min.css">
+<link rel="stylesheet" href="http://dreamlullaby.github.io/css/chroma.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
-<script src="https://dreamlullaby.github.io/js/bundle.js"></script><style>
+<script src="http://dreamlullaby.github.io/js/bundle.js"></script><style>
 :root {}
 </style>
 <meta property="og:title" content="准备面试的一些知识点" />
@@ -45,7 +45,7 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 思路：
 数据资产识别、分类升级➡数据风险评估➡安全设备、策略部署➡持续性的监测、管理" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+<meta property="og:url" content="http://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="准备面试的一些知识点"/>
@@ -105,7 +105,7 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 思路：
 数据资产识别、分类升级➡数据风险评估➡安全设备、策略部署➡持续性的监测、管理">
 
-<meta itemprop="wordCount" content="100">
+<meta itemprop="wordCount" content="127">
 
 
 
@@ -221,7 +221,7 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 <p><del>考察一些CISP、CISSP的知识点</del></p>
 </li>
 <li>
-<p>流程的设计</p>
+<p><strong>流程的设计</strong></p>
 <ul>
 <li>挑选一些较为复杂的流程，比如转岗、离职等，如何设计考虑其中的细节</li>
 </ul>
@@ -233,40 +233,46 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 <p>5.强化对于系统访问日志的监控和响应，发现离职员工的越权访问时及时警告</p>
 </li>
 <li>
-<p>渗透测试、安全研发、安全运营的问题可以挑选的问一些，以确保在各个方向上比较均衡</p>
+<p><del>渗透测试、安全研发、安全运营的问题可以挑选的问一些，以确保在各个方向上比较均衡</del></p>
 </li>
 <li>
-<p>对于企业不同时期、不同阶段、不同体量的安全建设的方法、区别以及侧重</p>
+<p><strong>渗透测试的思路</strong></p>
+<p>拿到一个待测网站应该做的事情</p>
+<p>1.信息收集</p>
+<p>​	1.1 获取域名whois信息，得到注册者邮箱姓名电话等</p>
+<p>​	1.2 查询服务器旁站和子域名站点</p>
+<p>​	1.3 查看服务器操作系统版本、web中间件，是否存在已知漏洞</p>
+<p>​	1.4 IP端口扫描</p>
+<p>​	1.5 扫描网站目录结构</p>
+<p>2.漏洞扫描</p>
+<p>​	常见如XSS, XSRF, sql injection , 越权访问，弱口令等</p>
+<p>​	详见 OWASP TOP 10 原理</p>
+<p>3.漏洞利用</p>
+<p>​	get webshell</p>
+<p>4.权限提升</p>
+<p>5.清理日志</p>
+<p>6.总结报告和修复方案</p>
 </li>
 <li>
-<p>你所做过的安全架构图和所期望的安全架构</p>
+<p><del>对于企业不同时期、不同阶段、不同体量的安全建设的方法、区别以及侧重</del></p>
 </li>
 <li>
-<p>安全与其他团队（运维、研发、测试、GR/PR、内控、高管及三方安全公司）的关系</p>
+<p><del>你所做过的安全架构图和所期望的安全架构</del></p>
 </li>
 <li>
-<p>安全建设的理念/方法论理解</p>
+<p><del>安全与其他团队（运维、研发、测试、GR/PR、内控、高管及三方安全公司）的关系</del></p>
 </li>
 <li>
+<p><strong>安全建设的理念/方法论理解</strong></p>
 <ul>
-<li>纵深防御</li>
-<li>木桶原理</li>
-<li>由外而内</li>
-<li>先低后上</li>
-<li>能口不点</li>
-<li>最小权限</li>
-<li>权限分离</li>
-<li>白名单和黑名单</li>
-<li>漏洞和误报</li>
-<li>规则经验和机器学习</li>
-<li>漏洞危害证明</li>
-<li>技术管控与意识提升的关系</li>
-<li>安全推进方法</li>
-<li>自研OR外采？</li>
-<li>找到总的核心目标和各个项目的主要目标</li>
-<li>创新和极致</li>
-<li>责任分担</li>
-<li>黑天鹅和灰犀牛</li>
+<li>
+<p>纵深防御</p>
+<p>Defense in Depth, 在网络各层采用不同的防护机制，以增强整体防护性能</p>
+</li>
+<li>
+<p>木桶原理</p>
+<p>系统整体的安全性能取决于最薄弱环节的安全性</p>
+</li>
 </ul>
 </li>
 <li>
@@ -282,10 +288,9 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 <p>未来安全行业的发展方向？</p>
 </li>
 </ul>
-<p>对数字化货币的看法</p>
 <div class="edit-meta">
 
-<br></div><nav class="pagination"><a class="nav nav-prev" href="https://dreamlullaby.github.io/tech/" title="Teches"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Teches</a>
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://dreamlullaby.github.io/tech/" title="Teches"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Teches</a>
 
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
@@ -293,12 +298,12 @@ General Data Protection Regulation，前身为欧盟的计算机数据保护法�
 
 <nav class="slide-menu">
 <ul>
-<li class=""><a href="https://dreamlullaby.github.io/">Home</a></li>
+<li class=""><a href="http://dreamlullaby.github.io/">Home</a></li>
 
-<li class="parent has-sub-menu"><a href="https://dreamlullaby.github.io/tech/">Teches<span class="mark opened">-</span></a>
+<li class="parent has-sub-menu"><a href="http://dreamlullaby.github.io/tech/">Teches<span class="mark opened">-</span></a>
   
 <ul class="sub-menu">
-<li class="active"><a href="https://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">准备面试的一些知识点</a></li>
+<li class="active"><a href="http://dreamlullaby.github.io/tech/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9/">准备面试的一些知识点</a></li>
 </ul>
   
 </li>
